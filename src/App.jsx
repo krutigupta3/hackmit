@@ -178,7 +178,7 @@ function App() {
           <LineChart chartData={userData} />
         </div>   
 
-    <div className="App">
+    <div className="left">
       <header className="App-header">
         <Chatbot config={config} actionProvider={ActionProvider} 	    messageParser={MessageParser} />
       </header>
