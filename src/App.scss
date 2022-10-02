@@ -190,7 +190,9 @@
     .mastery {
       z-index: 1000;
       position: relative;
-      
+      padding-top: 100px;
+      padding-bottom: 200px;
+      height: 100%;
       background-color: #032f3c;
       display: flex;
       align-content: center;
@@ -278,7 +280,12 @@
   }
 
   .submit{
-    height: 100px;
+    z-index: 1002;
+    height: 50px;
+    width: 200px;
+    position: absolute;
+    bottom: 25px;
+    right: 600px;
     align-content: center;
   }
 }
