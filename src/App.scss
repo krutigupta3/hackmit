@@ -240,5 +240,17 @@
       background: #f1f1f1;
       outline: lightgrey auto 0.5px;
   }
+  
+  .right{
+    position: absolute;
+    background-color: white;
+    opacity: 0.6;
+    width: 175px;
+    height: 250px;
+    border-radius: 5%;
+    top: 300px;
+    right: 50px;
+    
+  }
 
 }
