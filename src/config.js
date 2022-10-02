@@ -17,7 +17,7 @@ const config = {
     // Replaces the default header
 //    header: () => <div style={{ backgroundColor: 'grey', padding: "5px", borderRadius: "3px" }}>Chat</div>,
    // Replaces the default bot avatar
-   botAvatar: (props) => <img src='/public/earth.png' {...props} alt='World' />,
+   botAvatar: (props) => <img src='assets/earth.png' width="70" height="50" {...props} alt='World' />,
    // Replaces the default bot chat message container
 //    botChatMessage: (props) => <input value="How can I help?" {...props}/>,
    // Replaces the default user icon

@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="App">
 
-        <div className='left'>
+        <div className='quiz'>
           <Quiz/>
         </div>
 
