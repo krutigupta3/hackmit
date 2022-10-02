@@ -8,7 +8,7 @@ import config from './config';
 
 import './App.scss';
 import {WiRaindrops} from "react-icons/wi";
-import {BiGasPump} from "react-icons/bi";
+import {BiGasPump, BiImage, BiImageAdd} from "react-icons/bi";
 import {GrCar, GrSans} from "react-icons/gr";
 import {MdElectricalServices} from "react-icons/md";
 import {BsFillChatDotsFill} from "react-icons/bs";
@@ -262,12 +262,15 @@ function App() {
 
           
       { chatclick && (<div className="left">
-      <header className="App-header">
-        <Chatbot config={config} actionProvider={ActionProvider} 	    messageParser={MessageParser} />
-      </header>
-    </div>)
-    
-    }
+        <header className="App-header">
+          <Chatbot config={config} actionProvider={ActionProvider} 	    messageParser={MessageParser} />
+        </header>
+      </div>)
+      
+      }
+      { 
+      netclick && (<img src="assets/net.png" alt="" class="center" onClick={setnetclick}/>) 
+      }
     </div>
 
 

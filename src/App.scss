@@ -26,7 +26,6 @@
         margin-right: auto;
         width: 600px;
         height: 420px;
-        animation: rotation 6s infinite linear;
       }
       
       .imga1{
@@ -53,14 +52,6 @@
         }
       
       }
-    @keyframes rotation {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(359deg);
-      }
-    }
     .Water{
       position: absolute;
       left: 450px;
@@ -300,5 +291,8 @@
     align-content: center;
   }
 
+  img{
+      z-index: 500;
+    }
  
 }
