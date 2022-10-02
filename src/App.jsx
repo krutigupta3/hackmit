@@ -1,3 +1,11 @@
+import React from 'react';
+import Chatbot from 'react-chatbot-kit'
+import './App.css';
+
+import ActionProvider from './ActionProvider';
+import MessageParser from './MessageParser';
+import config from './config';
+
 import './App.scss';
 import {WiRaindrops} from "react-icons/wi";
 import {BiGasPump} from "react-icons/bi";
@@ -145,6 +153,11 @@ function App() {
           )
         }     
 
+    <div className="App">
+      <header className="App-header">
+        <Chatbot config={config} actionProvider={ActionProvider} 	    messageParser={MessageParser} />
+      </header>
+    </div>
     </div>
     
   );
