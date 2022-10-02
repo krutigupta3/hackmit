@@ -52,8 +52,7 @@
           
         }
       
-      
-    }
+      }
 
     .Water{
       position: absolute;
@@ -160,13 +159,20 @@
       align-items: center;
     }
 
+    .Star{
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      align-items: center;
+    }
+
     .Smile{
       position: absolute;
       top: 325px;
       left: 700px;
 
       
-      z-index:3;
+      z-index:1;
     }
 
     .Neutral{
@@ -174,7 +180,7 @@
       top: 325px;
       left: 700px;
 
-      z-index: 3;
+      z-index: 1;
 
     }
 
@@ -184,7 +190,7 @@
       top: 325px;
       left: 700px;
 
-      z-index: 3;
+      z-index: 1;
     }
 
     .mastery {
@@ -286,4 +292,6 @@
     right: 600px;
     align-content: center;
   }
+
+ 
 }

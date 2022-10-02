@@ -16,6 +16,7 @@ import {VscGraph} from "react-icons/vsc";
 import {CgSmile} from "react-icons/cg";
 import {CgSmileNeutral} from "react-icons/cg";
 import {CgSmileSad} from "react-icons/cg";
+import {AiOutlineStar} from "react-icons/ai"
 
 import Quiz from "./quiz";
 
@@ -33,12 +34,15 @@ import { DataElec } from "./DataElec";
 import {useState} from 'react';
 
 function App() {
+
+  const[quizclick, setquizclick] = useState(false);
+  const onquizclick = () => setquizclick(!quizclick);
   const[chatclick, setchatclick] = useState(false);
   const onchatclick = () => setchatclick(!chatclick)
   const[waterclick, setwaterclick] = useState(false);
   const onwaterclick = () => setwaterclick(!waterclick)
 
-  const[score, setScore] = useState(80);
+  const[score, setScore] = useState(20);
   const [userData, setUserData] = useState({
     labels: DataWater.map((data) => data.day),
     datasets: [
@@ -128,19 +132,34 @@ function App() {
   return (
     <div className="App">
 
+      {
+        quizclick && (
         <div className='quiz'>
           <Quiz/>
         </div>
+        )
+
+      }
+
 
       
         <div className="earth">
          
-        
-          <img classname="imga1" src="assets/earth.png" alt="" class="center"/>
+          {
+            (score > 75 )&& (<img classname="imga1" src="assets/happy.png" alt="" class="center"/>)
+          }
+          {
+            (score > 50 && score < 76) && (<img classname="imga1" src="assets/neutral.PNG" alt="" class="center"/>)
+          }
+          {
+            (score > 0 && score < 51) && (<img classname="imga1" src="assets/sad.PNG" alt="" class="center"/>)
+          }
+          
           <div className='score'>
             <h1>
-              HOW I'M DOING
+              HOW I'M DOING TODAY
             </h1>
+            
             <div className='bottom'>
               {score}
             </div>
@@ -210,52 +229,21 @@ function App() {
             }}
             />
         </div>  
-        
-         
+
+        <div className="Star">
+
+          <AiOutlineStar size="3em" color= "white"
+            style={{
+              position: 'relative',
+              left: '30px',
+              top: '200px',
+            }}
+
+          />
 
 
-
-        {
-          score > 75 && (
-            <div className="Smile">
-              <CgSmile size="5em" color= "black"
-                style={{
-                  position: 'relative',
-                  right: '7px',
-                  bottom: '7px',
-                }}
-              />
-                </div> 
-          )
-        }
-
-        {
-          (score > 50 && score < 76) && (
-            <div className="Neutral">
-              <CgSmileNeutral size="5em" color= "black"
-                style={{
-                  position: 'relative',
-                  right: '7px',
-                  bottom: '7px',
-                }}
-              />
-            </div> 
-          )
-        }
-
-        {
-          (score > 0 && score < 51) && (
-            <div className="Sad">
-              <CgSmileSad size="5em" color= "black"
-                style={{
-                  position: 'relative',
-                  right: '7px',
-                  bottom: '7px',
-                }}
-              />
-            </div> 
-          )
-        }  
+            
+        </div> 
         
         
         { waterclick && 
