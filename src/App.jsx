@@ -139,7 +139,7 @@ function App() {
           <img classname="imga1" src="assets/earth.png" alt="" class="center"/>
           <div className='score'>
             <h1>
-              YOUR SCORE TODAY
+              HOW I'M DOING
             </h1>
             <div className='bottom'>
               {score}

@@ -3,7 +3,7 @@ import React from 'react';
 const Quiz = () => {
   return (
     <div>
-        <form method="post" action="/" enctype="text/plain" class='mastery'>
+        <form method="post" action="/App.jsx" enctype="text/plain" class='mastery'>
         <div class="likert">
 
             <p class="question">In general, I feel I am in charge of the situation in which I live.</p>

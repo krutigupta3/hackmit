@@ -226,7 +226,6 @@
       pointer-events: none;
   }
 
-
   .likert span {
       border-radius: 5px;
       display: flex;
@@ -276,7 +275,6 @@
 
   .quiz{
     color: white;
-    opacity: 75;
   }
 
   .submit{
@@ -284,7 +282,7 @@
     height: 50px;
     width: 200px;
     position: absolute;
-    bottom: 25px;
+    bottom: 100px;
     right: 600px;
     align-content: center;
   }

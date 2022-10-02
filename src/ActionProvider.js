@@ -1,7 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: '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', // this needs to be updated with every GitHub push
+  apiKey: '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', // this needs to be updated with every GitHub push
 });
 
 const openai = new OpenAIApi(configuration)
