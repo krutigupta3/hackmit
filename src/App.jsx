@@ -28,10 +28,10 @@ import {useState} from 'react';
 function App() {
   const[score, setScore] = useState(80);
   const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.year),
+    labels: UserData.map((data) => data.day),
     datasets: [
       {
-        label: "Users Gained",
+        label: "Water Usage (Gal.)",
         data: UserData.map((data) => data.userGain),
         backgroundColor: [
           "rgba(75,192,192,1)",
