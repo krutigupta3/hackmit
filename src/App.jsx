@@ -34,6 +34,8 @@ import { DataElec } from "./DataElec";
 import {useState} from 'react';
 
 function App() {
+  const[netclick, setnetclick] = useState(false);
+  const onnetclick = () => setnetclick(!netclick);
 
   const[quizclick, setquizclick] = useState(false);
   const onquizclick = () => setquizclick(!quizclick);
@@ -140,19 +142,17 @@ function App() {
         )
 
       }
-
-
       
         <div className="earth">
          
           {
-            (score > 75 )&& (<img classname="imga1" src="assets/happy.png" alt="" class="center"/>)
+            (score > 75 )&& (<img classname="imga1" src="assets/happy.png" alt="" class="center" onClick={setquizclick}/>)
           }
           {
-            (score > 50 && score < 76) && (<img classname="imga1" src="assets/neutral.PNG" alt="" class="center"/>)
+            (score > 50 && score < 76) && (<img classname="imga1" src="assets/neutral.PNG" alt="" class="center" onClick={setquizclick}/>)
           }
           {
-            (score > 0 && score < 51) && (<img classname="imga1" src="assets/sad.PNG" alt="" class="center"/>)
+            (score > 0 && score < 51) && (<img classname="imga1" src="assets/sad.PNG" alt="" class="center" onClick={setquizclick}/>)
           }
           
           <div className='score'>
@@ -220,7 +220,7 @@ function App() {
             />
         </div>  
 
-        <div className="Trend">
+        <div className="Trend" onClick={onnetclick}>
           <VscGraph size="4em" color= "black"
             style={{
               position: 'relative',
