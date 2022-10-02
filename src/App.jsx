@@ -9,9 +9,9 @@ import config from './config';
 import './App.scss';
 import {WiRaindrops} from "react-icons/wi";
 import {BiGasPump} from "react-icons/bi";
-import {GrCar} from "react-icons/gr";
+import {GrCar, GrSans} from "react-icons/gr";
 import {MdElectricalServices} from "react-icons/md";
-import {IoIosPeople} from "react-icons/io";
+import {BsFillChatDotsFill} from "react-icons/bs";
 import {VscGraph} from "react-icons/vsc";
 import {CgSmile} from "react-icons/cg";
 import {CgSmileNeutral} from "react-icons/cg";
@@ -19,20 +19,32 @@ import {CgSmileSad} from "react-icons/cg";
 
 import Quiz from "./quiz";
 
-import LineChart from "./LineChart";
-import { UserData } from "./Data";
+import LineChartWater from "./LineChartWater";
+import LineChartTrans from "./LineChartTrans";
+import LineChartGas from "./LineChartGas";
+import LineChartElec from "./LineChartElec";
+
+import { DataWater } from "./DataWater";
+import { DataTrans } from "./DataTrans";
+import { DataGas } from "./DataGas";
+import { DataElec } from "./DataElec";
 
 
 import {useState} from 'react';
 
 function App() {
+  const[chatclick, setchatclick] = useState(false);
+  const onchatclick = () => setchatclick(!chatclick)
+  const[waterclick, setwaterclick] = useState(false);
+  const onwaterclick = () => setwaterclick(!waterclick)
+
   const[score, setScore] = useState(80);
   const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.year),
+    labels: DataWater.map((data) => data.day),
     datasets: [
       {
-        label: "Users Gained",
-        data: UserData.map((data) => data.userGain),
+        label: "Water Usage (Gal.)",
+        data: DataWater.map((data) => data.userGain),
         backgroundColor: [
           "rgba(75,192,192,1)",
           "#ecf0f1",
@@ -45,6 +57,74 @@ function App() {
       },
     ],
   });
+
+  const[elecclick, setelecclick] = useState(false);
+  const onelecclick = () => setelecclick(!elecclick)
+
+  const [elec, setelec] = useState({
+    labels: DataElec.map((data) => data.day),
+    datasets: [
+      {
+        label: "Electricity Usage (kW-h)",
+        data: DataElec.map((data) => data.userGain),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+        borderColor: "black",
+        borderWidth: 2,
+      },
+    ],
+  });
+
+
+  const[gasclick, setgasclick] = useState(false);
+  const ongasclick = () => setgasclick(!gasclick)
+  const [gas, setgas] = useState({
+    labels: DataGas.map((data) => data.day),
+    datasets: [
+      {
+        label: "Household Gas Usage (Gal.)",
+        data: DataGas.map((data) => data.userGain),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+        borderColor: "black",
+        borderWidth: 2,
+      },
+    ],
+  });
+
+
+  const[transclick, settransclick] = useState(false);
+  const ontransclick = () => settransclick(!transclick)
+
+  const [trans, settrans] = useState({
+    labels: DataTrans.map((data) => data.day),
+    datasets: [
+      {
+        label: "Gas Usage (Gal.)",
+        data: DataTrans.map((data) => data.userGain),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+        borderColor: "black",
+        borderWidth: 2,
+      },
+    ],
+  });
+
   return (
     <div className="App">
 
@@ -68,7 +148,7 @@ function App() {
           </div>
 
         </div>
-        <div className="Water">
+        <div className="Water" onClick={onwaterclick}>
           <WiRaindrops size="8em" color= "black"
             style={{
               position: 'relative',
@@ -80,7 +160,7 @@ function App() {
         <img src="" alt="" class="center"/>
         </div>
         
-        <div className="Car">
+        <div className="Car" onClick={ontransclick}>
           <GrCar size="4em" color= "black"
             style={{
               position: 'relative',
@@ -90,7 +170,7 @@ function App() {
             />
         
         </div>
-        <div className="Electric">
+        <div className="Electric" onClick={onelecclick}>
           <MdElectricalServices size="4em" color="black"
             style={{
               position: 'relative',
@@ -101,7 +181,7 @@ function App() {
 
         </div>
 
-        <div className="Gasoline">
+        <div className="Gasoline" onClick={ongasclick}>
           <BiGasPump size="5em" color= "black"
             style={{
               position: 'relative',
@@ -111,12 +191,12 @@ function App() {
           />
         </div>
 
-        <div className="People">
-          <IoIosPeople size="5em" color= "black"
+        <div className="People" onClick={onchatclick}>
+          <BsFillChatDotsFill size="3em" color= "black"
             style={{
               position: 'relative',
-              right: '-13px',
-              bottom: '-8px',
+              right: '-26px',
+              bottom: '-25px',
             }}
             />
         </div>  
@@ -174,15 +254,30 @@ function App() {
             </div> 
           )
         }  
-        <div style={{ width: 400 }} className='right'>
-          <LineChart chartData={userData} />
-        </div>   
+        
+        
+        { waterclick && 
+          ( <div style={{ width: 400 }} className='right'>{ onwaterclick && (<LineChartWater chartData={userData} />)}</div> )
+        }
+        { gasclick && 
+          ( <div style={{ width: 400 }} className='right'>{ ongasclick && (<LineChartGas chartData={gas} />)}</div> )
+        }
+        { elecclick && 
+          ( <div style={{ width: 400 }} className='right'>{ onelecclick && (<LineChartElec chartData={elec} />)}</div> )
+        }
+        { transclick && 
+          ( <div style={{ width: 400 }} className='right'>{ ontransclick && (<LineChartTrans chartData={trans} />)}</div> )
+        }
+        
 
-    <div className="left">
+          
+      { chatclick && (<div className="left">
       <header className="App-header">
         <Chatbot config={config} actionProvider={ActionProvider} 	    messageParser={MessageParser} />
       </header>
-    </div>
+    </div>)
+    
+    }
     </div>
 
 
